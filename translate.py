@@ -108,6 +108,7 @@ def main():
         print(f'已在桌面创建文档translated_{name}.txt')
         print('开始翻译...')
 
+        is_calculated = False
         i = 0
         while i < len(chunks):
             print(f'\r{i / len(chunks) * 100:.2f}%')
@@ -129,8 +130,10 @@ def main():
                 file.flush()
                 # print(text, end='')
 
-            interval = time.time() - start_time
-            length = int(interval * len(API_KEYS) // 20)
+            if not is_calculated:
+                is_calculated = True
+                interval = time.time() - start_time
+                length = int(interval * len(API_KEYS) // 20)
 
             i += length
 
