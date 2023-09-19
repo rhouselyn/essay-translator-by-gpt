@@ -62,7 +62,7 @@ def gpt3_translate(chunk):
             )
             return response
         except openai.error.OpenAIError as e:
-            time.sleep(1000)  # Wait for a short time before retrying
+            time.sleep(1)  # Wait for a short time before retrying
             print(e)
 
 
