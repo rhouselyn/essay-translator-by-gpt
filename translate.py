@@ -133,7 +133,7 @@ def main():
             if not is_calculated:
                 is_calculated = True
                 interval = time.time() - start_time
-                length = int(interval * len(API_KEYS) // 20)
+                length = max(1, int(interval * len(API_KEYS) // 20))
 
             i += length
 
